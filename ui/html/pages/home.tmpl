@@ -1,0 +1,54 @@
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+
+<section class="card">
+    <h2>Shorten a URL</h2>
+
+    {{with .flash}}
+    <div class="flash success">{{.}}</div>
+    {{end}}
+
+    <form action="/url/create" method="post" class="url-form">
+        <label for="long_url">Long URL</label>
+
+        {{with .error}}
+        <div class="flash error">{{.}}</div>
+        {{end}}
+
+        <input type="text" id="long_url" name="long_url">
+
+        <button type="submit">Shorten</button>
+    </form>
+</section>
+
+<section class="card">
+    <h2>Your URLs</h2>
+
+    {{if .urls}}
+    <div class="table-wrapper">
+        <table class="url-table">
+            <thead>
+                <tr>
+                    <th>Short URL</th>
+                    <th>Long URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $shortUrl, $longUrl := .urls}}
+                <tr>
+                    <td><a class="short-link" href="/r/{{$shortUrl}}">{{$shortUrl}}</a></td>
+                    <td class="long-cell">
+                        <a href="{{$longUrl}}">{{$longUrl}}</a>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <p class="muted">There are no short URLs yet.</p>
+    {{end}}
+</section>
+
+{{end}}

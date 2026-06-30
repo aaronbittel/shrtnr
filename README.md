@@ -10,10 +10,10 @@ make run/web
 
 ## MVP
 
-- [ ] Form to accept long URLs and return a shortened URL
-    - [ ] Only allow valid URLs
+- [x] Form to accept long URLs and return a shortened URL
+    - [x] Only allow valid URLs
     - [ ] Allow users to provide a custom alias for the short URL
-- [ ] Redirect from a shortened URL to the original URL
+- [x] Redirect from a shortened URL to the original URL
 - [ ] Persist URL mappings
 
 ## Extra
@@ -36,3 +36,17 @@ possible.
 - Frontend:
     - Go templates (html/template)
     - HTML / CSS / JavaScript
+
+## Demo
+
+### Create a short URL
+
+![success](./docs/success.png)
+
+### Validation error
+
+![error](./docs/error.png)
+
+### Redirect behavior
+
+Shortened URLs use the `/r` route for redirection.
